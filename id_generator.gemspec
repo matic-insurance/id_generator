@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'id_generator'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'id-generator'
+  spec.name          = 'id_generator'
   spec.version       = IdGenerator::VERSION
   spec.authors       = ['vnovitskyi']
   spec.email         = ['vnovitskyi@gmail.com']

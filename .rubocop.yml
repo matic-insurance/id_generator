@@ -13,4 +13,4 @@ Style/Documentation:
 
 Metrics/BlockLength:
   Exclude:
-  - 'id-generator.gemspec'
+  - 'id_generator.gemspec'
