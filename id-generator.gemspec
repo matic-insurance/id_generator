@@ -1,6 +1,6 @@
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'id_generator/version'
+require 'id_generator'
 
 Gem::Specification.new do |spec|
   spec.name          = 'id-generator'

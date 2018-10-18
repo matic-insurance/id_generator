@@ -1,6 +1,6 @@
 require 'rspec'
 require 'bundler/setup'
-require 'id_generator/generator'
+require 'id_generator'
 require 'pry'
 
 RSpec.configure do |config|
