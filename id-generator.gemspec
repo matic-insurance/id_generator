@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Generate unique id'
   spec.description   = 'Generate unique id'
-  spec.homepage      = 'http://rubygems.org/gems/id-generator'
+  spec.homepage      = 'https://github.com/matic-insurance/id_generator'
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org.
