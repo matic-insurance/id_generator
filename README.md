@@ -21,8 +21,8 @@ Or install it yourself as:
     $ gem install id_generator
 
 ## Usage
-
-TODO: Write usage instructions here
+context_id = kind_of(Integer)
+IdGenerator.new(context_id).generate
 
 ## Development
 
