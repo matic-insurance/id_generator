@@ -1,0 +1,16 @@
+require: rubocop-rspec
+
+# This is the default configuration file. Enabling and disabling is configured
+# in separate files. This file adds all other parameters apart from Enabled.
+
+#Example: https://github.com/bbatsov/rubocop/blob/master/config/default.yml
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+  - 'id-generator.gemspec'
