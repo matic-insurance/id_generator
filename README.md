@@ -62,7 +62,7 @@ ID_GENERATOR.generate
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/matic-insurance/id_generator.
+Bug reports and pull requests are welcome on GitHub at [https://github.com/matic-insurance/id_generator]().
 
 ## License
 
