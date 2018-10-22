@@ -1,8 +1,8 @@
 RSpec.describe IdGenerator do
   let(:generator) { described_class.new(context_id) }
+  let(:context_id) { rand(255) }
 
   describe 'id format' do
-    let(:context_id) { rand(255) }
     let(:parts) { uniq_id.split('-') }
 
     it 'has correct size' do
@@ -40,49 +40,35 @@ RSpec.describe IdGenerator do
     end
   end
 
+  describe 'context_id' do
+    it 'allows 0' do
+      expect { described_class.new(0) }.not_to raise_error
+    end
+
+    it 'allows 255' do
+      expect { described_class.new(255) }.not_to raise_error
+    end
+
+    it 'rejects negative values' do
+      expect { described_class.new(-1) }.to raise_error(IdGenerator::Error, 'Invalid project id')
+    end
+
+    it 'rejects large values' do
+      expect { described_class.new(rand(256..1000)) }.to raise_error(IdGenerator::Error, 'Invalid project id')
+    end
+
+    it 'rejects empty values' do
+      expect { described_class.new(nil) }.to raise_error(IdGenerator::Error, 'Invalid project id')
+    end
+
+    it 'rejects invalid values' do
+      expect { described_class.new('id') }.to raise_error(IdGenerator::Error, 'Invalid project id')
+    end
+  end
+
   describe '#generate' do
-    context 'with valid context id' do
-      let(:context_id) { rand(255) }
-
-      it 'generates random id every time' do
-        expect(uniq_id).not_to eq(uniq_id)
-      end
-    end
-
-    context 'with empty context id' do
-      let(:context_id) { nil }
-
-      it 'raises exception' do
-        expect { uniq_id }.to raise_error(IdGenerator::Error,
-                                          'Invalid project id')
-      end
-    end
-
-    context 'with invalid context id' do
-      let(:context_id) { 'context' }
-
-      it 'raises exception' do
-        expect { uniq_id }.to raise_error(IdGenerator::Error,
-                                          'Invalid project id')
-      end
-    end
-
-    context 'with invalid too big context id' do
-      let(:context_id) { 267 }
-
-      it 'raises exception' do
-        expect { uniq_id }.to raise_error(IdGenerator::Error,
-                                          'Invalid project id')
-      end
-    end
-
-    context 'with negative context id' do
-      let(:context_id) { -5 }
-
-      it 'raises exception' do
-        expect { uniq_id }.to raise_error(IdGenerator::Error,
-                                          'Invalid project id')
-      end
+    it 'generates random id every time' do
+      expect(uniq_id).not_to eq(uniq_id)
     end
   end
 

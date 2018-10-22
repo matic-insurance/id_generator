@@ -26,8 +26,7 @@ class IdGenerator
 
   def context_id_valid?(context_id)
     return false unless context_id.is_a?(Integer)
-    return false unless context_id.positive?
-    return false unless context_id < 256
+    return false unless context_id.between?(0, 255)
 
     true
   end
