@@ -7,9 +7,13 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.0)
+    codacy-coverage (2.1.0)
+      simplecov
     coderay (1.1.2)
     diff-lcs (1.3)
+    docile (1.3.1)
     jaro_winkler (1.5.1)
+    json (2.1.0)
     method_source (0.9.0)
     parallel (1.12.1)
     parser (2.5.1.2)
@@ -45,6 +49,11 @@ GEM
     rubocop-rspec (1.30.0)
       rubocop (>= 0.58.0)
     ruby-progressbar (1.10.0)
+    simplecov (0.16.1)
+      docile (~> 1.1)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
     unicode-display_width (1.4.0)
 
 PLATFORMS
@@ -52,6 +61,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.16)
+  codacy-coverage
   id_generator!
   pry
   rake (~> 10.0)
