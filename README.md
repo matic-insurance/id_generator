@@ -1,6 +1,7 @@
 # IdGenerator
 
 [![Build Status](https://travis-ci.org/matic-insurance/id_generator.svg?branch=master)](https://travis-ci.org/matic-insurance/id_generator)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ff827f62fb034d3b8ff71d69a9f0e233)](https://www.codacy.com/app/Matic/id_generator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=matic-insurance/id_generator&amp;utm_campaign=Badge_Grade)
 
 This gem provides uniq and random ids generation in distributed services 
 but at the same time gives some ordering (timestamp) and debug (context) information
