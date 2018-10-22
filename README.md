@@ -1,5 +1,7 @@
 # IdGenerator
 
+[![Build Status](https://travis-ci.org/matic-insurance/id_generator.svg?branch=master)](https://travis-ci.org/matic-insurance/id_generator)
+
 This gem provides uniq and random ids generation in distributed services 
 but at the same time gives some ordering (timestamp) and debug (context) information
 
