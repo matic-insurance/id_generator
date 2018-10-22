@@ -5,6 +5,9 @@ require: rubocop-rspec
 
 #Example: https://github.com/bbatsov/rubocop/blob/master/config/default.yml
 
+Metrics/LineLength:
+  Max: 120
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
@@ -12,5 +15,6 @@ Style/Documentation:
   Enabled: false
 
 Metrics/BlockLength:
+  ExcludedMethods: ['describe']
   Exclude:
   - 'id_generator.gemspec'

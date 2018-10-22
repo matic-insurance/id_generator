@@ -30,13 +30,13 @@ RSpec.describe IdGenerator do
     end
 
     it 'includes timestamp' do
-      timestamp = Time.now.to_i - Time.new(2014).to_i
+      timestamp = Time.now.to_i - Time.new(2000).to_i
       id_timestamp = uniq_id.split('-').first.to_i(16)
       expect(id_timestamp).to be_between(timestamp, timestamp + 2)
     end
 
     it 'include project id' do
-      expect(uniq_id).to include(sprintf('-%02x-', context_id))
+      expect(uniq_id).to include(format('-%02x-', context_id))
     end
   end
 
@@ -45,7 +45,7 @@ RSpec.describe IdGenerator do
       let(:context_id) { rand(255) }
 
       it 'generates random id every time' do
-        expect(uniq_id).to_not eq(uniq_id)
+        expect(uniq_id).not_to eq(uniq_id)
       end
     end
 
