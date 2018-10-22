@@ -5,11 +5,12 @@ require 'id_generator'
 Gem::Specification.new do |spec|
   spec.name          = 'id_generator'
   spec.version       = IdGenerator::VERSION
-  spec.authors       = ['vnovitskyi']
+  spec.authors       = ['Viktor Novitskyi']
   spec.email         = ['vnovitskyi@gmail.com']
 
-  spec.summary       = 'Generate unique id'
-  spec.description   = 'Generate unique id'
+  spec.summary       = 'Generator of random but at the same time timestamped and system identifiable ids'
+  spec.description   = 'Ruby Gem that allow to generate random ids in distributed systems (micro-services)
+                        and include debug information like timestamp and system id'
   spec.homepage      = 'https://github.com/matic-insurance/id_generator'
   spec.license       = 'MIT'
 
@@ -36,6 +37,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 1.16'
+  spec.add_development_dependency 'codacy-coverage'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
