@@ -15,12 +15,12 @@ We want to have large random part that can be used as a simple guard against enu
 
 While we designed format and gem we used these as requirements:
 
-- Every system should be able to independently (without coordination) generate id that will never (with reasonable chances) be duplicated
-- ID allows partial time ordering (timestamp in seconds)
-- ID has easy system identifier (context)
-- ID is human readable 
-- ID size is not a concern
-- ID format should not be used for business/application logic - thus it remains flexible for future changes
+-   Every system should be able to independently (without coordination) generate id that will never (with reasonable chances) be duplicated
+-   ID allows partial time ordering (timestamp in seconds)
+-   ID has easy system identifier (context)
+-   ID is human readable 
+-   ID size is not a concern
+-   ID format should not be used for business/application logic - thus it remains flexible for future changes
 
 ## ID Format
 
@@ -28,9 +28,9 @@ Suggested algorithm is based on the Twitter snowflake and other similar alghorit
 
 `TTTTTTTT-II-RRRRRRRRRRRRRRRRRRRRRR`
 
-- `TTTTTTTT` - time in seconds since 2000 (just cool number) represented as hex - Gives us ~150 years of uniq sequences
-- `II` - 1 byte for System Identification in hex
-- `RRRRRRRRRRRRRRRRRRRRRR` - 11 bytes secure random number as hex
+-   `TTTTTTTT` - time in seconds since 2000 (just cool number) represented as hex - Gives us ~150 years of uniq sequences
+-   `II` - 1 byte for System Identification in hex
+-   `RRRRRRRRRRRRRRRRRRRRRR` - 11 bytes secure random number as hex
 
 Code to generate is pretty straightforward: 
 

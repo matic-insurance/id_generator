@@ -1,7 +1,7 @@
 require 'securerandom'
 
 class IdGenerator
-  VERSION = '0.1.1'.freeze
+  VERSION = '0.1.2'.freeze
 
   COUNTER_PART_SIZE = 8
   CONTEXT_PART_SIZE = 2
