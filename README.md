@@ -54,10 +54,12 @@ gem 'id_generator'
 ```ruby
 # Somewhere during project start
 context_id = 165 # value from 0 to 255
-ID_GENERATOR = IdGenerator.new(context_id)
+IdGenerator.configuration.context_id = context_id
+# Or using block
+IdGenerator.configure {|config| config.context_id = context_id} 
 
 #Inside of the actual code
-ID_GENERATOR.generate
+IdGenerator.generate
 ```
 
 ## Contributing
