@@ -1,5 +1,5 @@
 RSpec.describe IdGenerator::Generators::TimestampedRandom do
-  let(:generator) { described_class.new(context_id) }
+  let(:generator) { described_class.new(configuration) }
   let(:context_id) { rand(255) }
   let(:configuration) { IdGenerator::Configuration.new(context_id: context_id) }
 
@@ -38,32 +38,6 @@ RSpec.describe IdGenerator::Generators::TimestampedRandom do
 
     it 'include project id' do
       expect(uniq_id).to include(format('-%02x-', context_id))
-    end
-  end
-
-  describe 'context_id' do
-    it 'allows 0' do
-      expect { described_class.new(0) }.not_to raise_error
-    end
-
-    it 'allows 255' do
-      expect { described_class.new(255) }.not_to raise_error
-    end
-
-    it 'rejects negative values' do
-      expect { described_class.new(-1) }.to raise_error(IdGenerator::Errors::InvalidContextId, 'Invalid project id')
-    end
-
-    it 'rejects large values' do
-      expect { described_class.new(rand(256..1000)) }.to raise_error(IdGenerator::Errors::InvalidContextId, 'Invalid project id')
-    end
-
-    it 'rejects empty values' do
-      expect { described_class.new(nil) }.to raise_error(IdGenerator::Errors::InvalidContextId, 'Invalid project id')
-    end
-
-    it 'rejects invalid values' do
-      expect { described_class.new('id') }.to raise_error(IdGenerator::Errors::InvalidContextId, 'Invalid project id')
     end
   end
 
