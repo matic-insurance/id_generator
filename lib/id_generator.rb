@@ -12,13 +12,11 @@ module IdGenerator
     id_generator.generate
   end
 
-  protected
-
   def self.configuration
     @configuration ||= Configuration.new
   end
 
   def self.id_generator
-    @id_generator ||= IdGenerator::Generators::TimestampedRandom.new(config)
+    @id_generator ||= IdGenerator::Generators::TimestampedRandom.new(configuration)
   end
 end
