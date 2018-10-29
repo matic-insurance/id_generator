@@ -56,7 +56,7 @@ gem 'id_generator'
 context_id = 165 # value from 0 to 255
 IdGenerator.configuration.context_id = context_id
 # Or using block
-IdGenerator.configure {|config| config.context_id = context_id} 
+IdGenerator.configure { |config| config.context_id = context_id } 
 
 #Inside of the actual code
 IdGenerator.generate
