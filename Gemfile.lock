@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    id_generator (0.1.2)
+    id_generator (1.0.0)
 
 GEM
   remote: https://rubygems.org/
