@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 RSpec.describe IdGenerator::Configuration do
   describe '#context_id' do
     let(:configuration) { described_class.new(context_id: context_id) }

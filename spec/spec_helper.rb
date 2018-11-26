@@ -1,10 +1,10 @@
+require 'codacy-coverage'
+Codacy::Reporter.start
+
 require 'rspec'
 require 'bundler/setup'
 require 'id_generator'
 require 'pry'
-require 'codacy-coverage'
-
-Codacy::Reporter.start
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
