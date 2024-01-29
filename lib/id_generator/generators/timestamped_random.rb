@@ -4,9 +4,8 @@ module IdGenerator
   module Generators
     class TimestampedRandom
       COUNTER_PART_SIZE = 8
-      CONTEXT_PART_SIZE = 2
+      CONTEXT_PART_SIZE = 4
 
-      RANDOM_PART_BYTES = 11
       COUNTER_START = Time.new(2000).to_i
 
       attr_reader :config
@@ -16,7 +15,7 @@ module IdGenerator
       end
 
       def generate
-        "#{time}-#{context_id}-#{random_number}"
+        "#{time}-#{context_id}-#{random_number}-#{random_number}-#{random_number(6)}"
       end
 
       private
@@ -30,8 +29,9 @@ module IdGenerator
         value_to_hex(config.context_id, CONTEXT_PART_SIZE)
       end
 
-      def random_number
-        SecureRandom.hex(RANDOM_PART_BYTES)
+      # 1 byte = 2 hex chars
+      def random_number(default_bytes = 2)
+        SecureRandom.hex(default_bytes)
       end
 
       def value_to_hex(value, size)

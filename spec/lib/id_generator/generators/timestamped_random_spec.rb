@@ -7,15 +7,20 @@ RSpec.describe IdGenerator::Generators::TimestampedRandom do
     let(:parts) { uniq_id.split('-') }
 
     it 'has correct size' do
-      expect(uniq_id.size).to eq(34)
+      expect(uniq_id.size).to eq(36)
     end
 
+    # Palantir::ValidationPatterns::GUID
     it 'has correct format' do
-      expect(uniq_id).to match(/^[a-z0-9\-]+$/)
+      expect(uniq_id).to match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i)
     end
 
-    it 'has 2 separators' do
-      expect(parts.size).to eq(3)
+    it 'has 4 separators' do
+      expect(uniq_id.count('-')).to eq(4)
+    end
+
+    it 'has 5 parts' do
+      expect(parts.size).to eq(5)
     end
 
     it 'has correct timestamp size' do
@@ -23,11 +28,19 @@ RSpec.describe IdGenerator::Generators::TimestampedRandom do
     end
 
     it 'has correct project id size' do
-      expect(parts[1].size).to eq(2)
+      expect(parts[1].size).to eq(4)
     end
 
-    it 'has correct random part size' do
-      expect(parts[2].size).to eq(22)
+    it 'has correct random part 1 size' do
+      expect(parts[2].size).to eq(4)
+    end
+
+    it 'has correct random part 2 size' do
+      expect(parts[3].size).to eq(4)
+    end
+
+    it 'has correct random part 3 size' do
+      expect(parts[4].size).to eq(12)
     end
 
     it 'includes timestamp' do
@@ -37,7 +50,7 @@ RSpec.describe IdGenerator::Generators::TimestampedRandom do
     end
 
     it 'include project id' do
-      expect(uniq_id).to include(format('-%02x-', context_id))
+      expect(uniq_id).to include(format('-%04x-', context_id))
     end
   end
 
